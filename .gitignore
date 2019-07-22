@@ -1,1 +1,5 @@
+*.log
+/conf/application.ini
+/temp/*.json
+/install/install.lock
 /nbproject/private/

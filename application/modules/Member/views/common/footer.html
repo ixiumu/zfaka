@@ -1,10 +1,7 @@
-	<div class="fly-footer">
-	  <p>Powered by <a href="https://github.com/zlkbdotnet/zfaka/" target="_blank">ZFAKA <?php echo VERSION;?></a></p>
-	</div>
 <script src="/res/layui/layui.js"></script>
 <script>
 layui.config({
-  version: "<?php echo VERSION;?>"
+  version: "<?php echo date("Ymd",filemtime(APP_PATH . "/public/res/mods/common.js"));?>"
   ,base: '/res/mods/'
 }).use('common');
 layui.use('element', function(){
