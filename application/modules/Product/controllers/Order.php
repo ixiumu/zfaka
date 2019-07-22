@@ -51,13 +51,8 @@ class OrderController extends ProductBasicController
 						$qq = '';
 					}else{
 						$qq = $this->getPost('qq');
-						if($qq){
-							if(is_numeric($qq)){
-								$email = $qq.'@qq.com';
-							}else{
-								$data = array('code' => 1006, 'msg' => 'QQ格式不正确');
-								Helper::response($data);	
-							}
+						if($qq AND is_numeric($qq)){
+							$email = $qq.'@qq.com';
 						}else{
 							$data = array('code' => 1006, 'msg' => '丢失参数');
 							Helper::response($data);
@@ -65,14 +60,8 @@ class OrderController extends ProductBasicController
 					}
 				}else{
 					$email = $this->getPost('email',false);
-					if($email){
-						$email = strtolower($email);
-						if(isEmail($email)){
-							$qq = '';
-						}else{
-							$data = array('code' => 1006, 'msg' => '邮箱格式不正确');
-							Helper::response($data);
-						}
+					if($email AND isEmail($email)){
+						$qq = '';
 					}else{
 						$data = array('code' => 1006, 'msg' => '丢失参数');
 						Helper::response($data);
